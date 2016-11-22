@@ -35,7 +35,10 @@ func (t *Thermometer) Process() {
 		return
 	}
 
-	tempInt, err := strconv.Atoi(strings.Split(string(rawData), "t=")[1])
+	foo := strings.Split(string(rawData), "t=")[1]
+	bar := strings.Split(foo, "\n")[0]
+
+	tempInt, err := strconv.Atoi(bar)
 	if err != nil {
 		log.Error(err)
 		return
