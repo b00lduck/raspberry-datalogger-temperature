@@ -1,7 +1,8 @@
-FROM hypriot/rpi-golang
-WORKDIR /gopath1.5/src/b00lduck/raspberry-datalogger-temperature
+FROM rem/rpi-golang-1.7:latest
+
+WORKDIR /gopath/src/github.com/b00lduck/raspberry-datalogger-temperature
 ENTRYPOINT ["raspberry-datalogger-temperature"]
 
-ADD . /gopath1.5/src/b00lduck/raspberry-datalogger-temperature
+ADD . /gopath/src/github.com/b00lduck/raspberry-datalogger-temperature
 RUN go get
 RUN go build
