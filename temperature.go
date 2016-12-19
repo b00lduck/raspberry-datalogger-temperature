@@ -15,10 +15,10 @@ func main() {
     var therm3 = sensor.NewThermometer("temperature_hallway_2", "28-041658b3cbff", 0.2)
 
     for {
-	therm1.Process()
-	therm2.Process()
-	therm3.Process()
-	time.Sleep(5 * time.Second)
+        therm1.Process()
+        therm2.Process()
+        therm3.Process()
+        time.Sleep(5 * time.Second)
     }
 }
 
