@@ -44,7 +44,7 @@ func (t *Thermometer) Process() {
 		return
 	}
 
-	temp := float64(tempInt) / 1000
+	temp := float64(tempInt) / 1000000
 
 	t.setNewReading(temp)
 }
