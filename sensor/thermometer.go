@@ -11,6 +11,8 @@ import (
 type Thermometer struct {
 	oldValue float64
 	precision float64
+    min float64
+    max float64
 	code string
 	filename string
 }
@@ -18,11 +20,13 @@ type Thermometer struct {
 const thermoDevicePrefix = "/sys/devices/w1_bus_master1/"
 const thermoDeviceSuffix = "/w1_slave"
 
-func NewThermometer(code string, filename string, precision float64) Thermometer {
+func NewThermometer(code string, filename string, precision float64, min float64, max float64) Thermometer {
 	return Thermometer{
 		oldValue: 0,
 		precision: precision,
 		code: code,
+        min: min,
+        max: max,
 		filename: thermoDevicePrefix + filename + thermoDeviceSuffix,
 	}
 }
@@ -50,6 +54,11 @@ func (t *Thermometer) Process() {
 }
 
 func (t *Thermometer) setNewReading(reading float64) {
+
+    if reading > t.max || reading < t.min {
+        log.WithField("reading", reading).Error("Unplausible value detected, skipping")
+        return
+    }
 
 	// precision reduction
 	limitedPrecisionValue := round(reading / t.precision) * t.precision
