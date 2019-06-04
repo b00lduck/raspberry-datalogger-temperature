@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t rem/temperature .
+docker build --no-cache -t rem/temperature .

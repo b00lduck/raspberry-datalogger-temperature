@@ -3,7 +3,7 @@ import (
 	"math"
 	"github.com/b00lduck/raspberry-datalogger-dataservice-client"
 	"io/ioutil"
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	"strings"
 	"strconv"
 )
@@ -25,8 +25,8 @@ func NewThermometer(code string, filename string, precision float64, min float64
 		oldValue: 0,
 		precision: precision,
 		code: code,
-        min: min,
-        max: max,
+		min: min,
+		max: max,
 		filename: thermoDevicePrefix + filename + thermoDeviceSuffix,
 	}
 }

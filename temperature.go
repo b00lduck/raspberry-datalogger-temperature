@@ -1,9 +1,9 @@
 package main
 
 import (
-	"time"
-	log "github.com/Sirupsen/logrus"
-	"github.com/b00lduck/raspberry-datalogger-temperature/sensor"
+    "time"
+    log "github.com/sirupsen/logrus"
+    "github.com/b00lduck/raspberry-datalogger-temperature/sensor"
 )
 
 func main() {
